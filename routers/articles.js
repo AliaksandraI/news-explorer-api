@@ -24,4 +24,4 @@ articles.delete('/:id', celebrate({
   }).unknown(true),
 }), deleteArticle);
 
-module.exports = users;
+module.exports = articles;
