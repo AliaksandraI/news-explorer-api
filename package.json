@@ -13,7 +13,10 @@
     "express": "^4.17.1",
     "express-winston": "^4.0.5",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.10.2",
+    "mongoose": "^5.10.9",
+    "path": "^0.12.7",
+    "public": "^0.1.5",
+    "typescript": "^4.0.3",
     "winston": "^3.3.3"
   },
   "scripts": {

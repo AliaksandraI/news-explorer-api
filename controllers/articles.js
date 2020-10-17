@@ -12,25 +12,26 @@ const createArticle = (req, res, next) => {
   const { keyword, title, text, date, source, link, image } = req.body;
   const owner = req.user._id;
 
-  Article.create({ keyword, title, text, date, source, link, image })
+  Article.create({ keyword, title, text, date, source, link, image, owner })
     .then((card) => res.status(200).send(card))
     .catch(next);
 };
 
 const deleteArticle = (req, res, next) => {
   const owner = req.user._id;
+  const cardId = req.params.id;
 
-  if (owner === req.params.id) {
-    Article.findOneAndDelete({ _id: req.params.id, owner })
-      .then((data) => {
-        if (data) {
-          return res.status(200).send(data);
-        }
+    Article.findById( cardId, function (err, result) {
+      if (err) {
         throw new NotFoundError('No article with that id');
-      })
-      .catch(next);
-  }
-  throw new OwnerError({ message: 'This article was added by another user' });
+      } else {
+          if (owner === result.owner) {
+           return res.status(200).send(result);
+          }
+          throw new OwnerError({ message: 'This article was added by another user' });
+      }
+    })
+    .catch(next);
 };
 
 module.exports = {
