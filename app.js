@@ -7,12 +7,12 @@ const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
 
 const { PORT = 4000 } = process.env;
-
+const cors = require('cors');
 const { createUser, login } = require('./controllers/auth');
 const notfoundRouter = require('./routes/notfound');
 
 const app = express();
-
+app.use(cors({ origin: true }));
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
