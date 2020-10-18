@@ -6,7 +6,7 @@ const path = require('path');
 const { errors } = require('celebrate');
 const { celebrate, Joi } = require('celebrate');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3003 } = process.env;
 
 const { createUser, login } = require('./controllers/auth');
 const notfoundRouter = require('./routes/notfound');
