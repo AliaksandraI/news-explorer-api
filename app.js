@@ -43,7 +43,6 @@ app.post('/api/signin', celebrate({
   }).unknown(true),
 }), login);
 
-
 app.use(auth);
 
 app.use('/api/users', require('./routes/users'));
@@ -64,6 +63,3 @@ app.use((err, req, res) => {
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
-
-
-
