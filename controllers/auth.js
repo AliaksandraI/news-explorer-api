@@ -15,7 +15,7 @@ module.exports.createUser = (req, res, next) => {
     }))
     .catch((err) => {
       if (err.code === 11000) {
-        throw new EmailError({ message: 'This email is already used' });
+        throw new EmailError('This email is already used');
       } else next(err);
     })
     .then((user) => {
