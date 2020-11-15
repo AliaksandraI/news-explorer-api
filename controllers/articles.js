@@ -2,7 +2,9 @@ const Article = require('../models/article');
 const NotFoundError = require('../errors/not-found-err');
 
 const getArticles = (req, res, next) => {
-  Article.find({})
+  const cardOwner = req.user._id;
+
+  Article.find({ owner: cardOwner })
     .then((data) => res.status(200).send(data))
     .catch(next);
 };
