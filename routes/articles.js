@@ -14,7 +14,7 @@ articles.post('/', celebrate({
     date: Joi.string().required(),
     source: Joi.string().required(),
     link: Joi.string().required().pattern(/(https?:\/\/)(w{3}\.)?(((\d{1,3}\.){3}\d{1,3})|((\w-?)+\.(ru|com)))(:\d{2,5})?((\/.+)+)?\/?#?/),
-    image: Joi.string().required().pattern(/(https?:\/\/.*\.(?:png|jpg))/),
+    image: Joi.string().required().pattern(/(https?:\/\/.*\.)/),
   }).unknown(true),
 }), createArticle);
 

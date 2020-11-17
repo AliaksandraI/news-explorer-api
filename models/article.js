@@ -37,7 +37,7 @@ const articleSchema = new mongoose.Schema({
     required: true,
     validate: {
       validator(link) {
-        const regEx = /(https?:\/\/.*\.(?:png|jpg))/;
+        const regEx = /(https?:\/\/.*\.)/;
         return regEx.test(link);
       },
       message: 'Invalid URL',
